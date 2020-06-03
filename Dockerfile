@@ -5,6 +5,16 @@ MAINTAINER Xiaoqi Cao <thomascxq@gmail.com>
 
 RUN apt-get update \
     && apt-get install -y software-properties-common \
+    && apt-get install geoip-database-extra libgeoip1 libnginx-mod-http-geoip -y \
+    && cd /usr/share/GeoIP \
+    && mv GeoIP.dat GeoIP.dat.bak \
+    && wget https://dl.miyuru.lk/geoip/maxmind/country/maxmind.dat.gz \
+    && gunzip maxmind.dat.gz \
+    && mv maxmind.dat GeoIP.dat \
+    && mv GeoIPCity.dat GeoIPCity.dat.bak \
+    && wget https://dl.miyuru.lk/geoip/maxmind/city/maxmind.dat.gz \
+    && gunzip maxmind.dat.gz \
+    && mv maxmind.dat GeoIPCity.dat \
     && apt-add-repository -y ppa:nginx/stable \
     && apt-get update \
     && apt-get install -y nginx \
