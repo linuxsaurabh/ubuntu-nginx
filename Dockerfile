@@ -6,6 +6,7 @@ MAINTAINER Saurabh Agrawal
 RUN apt-get update \
     && apt-get install -y software-properties-common \
     && apt-add-repository -y ppa:nginx/stable \
+    && apt-get update \
     && apt-get install geoip-database-extra libgeoip1 libnginx-mod-http-geoip -y \
     && cd /usr/share/GeoIP \
     && mv GeoIP.dat GeoIP.dat.bak \
@@ -16,7 +17,6 @@ RUN apt-get update \
     && wget https://dl.miyuru.lk/geoip/maxmind/city/maxmind.dat.gz \
     && gunzip maxmind.dat.gz \
     && mv maxmind.dat GeoIPCity.dat \
-    && apt-get update \
     && apt-get install -y nginx \
     && rm -rf /var/lib/apt/lists/*
 
