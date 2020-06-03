@@ -1,5 +1,5 @@
-FROM ubuntu:14.04
-MAINTAINER Xiaoqi Cao <thomascxq@gmail.com>
+FROM ubuntu:16.04
+MAINTAINER Saurabh Agrawal
 
 #Install Nginx
 
