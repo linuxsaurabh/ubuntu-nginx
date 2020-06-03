@@ -1,20 +1,190 @@
-<!DOCTYPE html>
+
 <html>
-  <head>
-    <title>Ubuntu Nginx</title>
-    <meta charset="utf-8">
-    <style>
-      body {
-        width: 35em;
-        margin: 0 auto;
-        font-family: Tahoma, Verdana, Arial, sans-serif;
-      }
-  </style>
-  </head>
-  <body>
-    <h1>Welcome to Ubuntu Nginx!</h1>
-    <p>If you see this page, the nginx web server is successfully installed and working. Further configuration is required.</p>
-    <p>For online documentation and support please refer to <a href="http://nginx.org/">nginx.org</a>.<br> Commercial support is available at <a href="http://nginx.com/">nginx.com</a>.</p>
-    <p><em>Thank you for using nginx.</em></p>
-  </body>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="https://p.typekit.net/p.css?s=1&k=gdv2eew&ht=tk&f=28173&a=1333289&app=typekit&e=css" rel="stylesheet">
+<style>
+
+@font-face {
+font-family:"scriptorama-tradeshow-jf";
+src:url("https://use.typekit.net/af/4e73ff/00000000000000003b9ada8f/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/4e73ff/00000000000000003b9ada8f/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/4e73ff/00000000000000003b9ada8f/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+font-style:normal;font-weight:400;
+}
+
+.tk-scriptorama-tradeshow-jf { font-family: "scriptorama-tradeshow-jf",sans-serif; }
+@font-face{
+  font-family:'helvetica-light';
+  src:url('https://cdn.flptitan.com/flpi/fonts/HelveticaNeueLTStd-Th.eot');
+  src:url('https://cdn.flptitan.com/flpi/fonts/HelveticaNeueLTStd-Th.eot?#iefix') format('embedded-opentype'),
+  url('https://cdn.flptitan.com/flpi/fonts/HelveticaNeueLTStd-Th.woff') format('woff'),
+  url('https://cdn.flptitan.com/flpi/fonts/HelveticaNeueLTStd-Th.ttf') format('truetype'),
+  url('https://cdn.flptitan.com/flpi/fonts/HelveticaNeueLTStd-Th.svg#HelveticaNeueLTStd-Th') format('svg')
+}
+@font-face{
+  font-family:'helvetica-regular';
+  src:url('https://cdn.flptitan.com/flpi/fonts/HelveticaNeueLTStd-Roman.eot');
+  src:url('https://cdn.flptitan.com/flpi/fonts/HelveticaNeueLTStd-Roman.eot?#iefix') format('embedded-opentype'),
+  url('https://cdn.flptitan.com/flpi/fonts/HelveticaNeueLTStd-Roman.woff') format('woff'),
+  url('https://cdn.flptitan.com/flpi/fonts/HelveticaNeueLTStd-Roman.ttf') format('truetype'),
+  url('https://cdn.flptitan.com/flpi/fonts/HelveticaNeueLTStd-Roman.svg#HelveticaNeueLTStd-Roman') format('svg')
+}
+@font-face{
+  font-family:'helvetica-bold';
+  src:url('https://cdn.flptitan.com/flpi/fonts/HelveticaNeueLTStd-Bd.eot');
+  src:url('https://cdn.flptitan.com/flpi/fonts/HelveticaNeueLTStd-Bd.eot?#iefix') format('embedded-opentype'),
+  url('https://cdn.flptitan.com/flpi/fonts/HelveticaNeueLTStd-Bd.woff') format('woff'),
+  url('https://cdn.flptitan.com/flpi/fonts/HelveticaNeueLTStd-Bd.ttf') format('truetype'),
+  url('https://cdn.flptitan.com/flpi/fonts/HelveticaNeueLTStd-Bd.svg#HelveticaNeueLTStd-Bd') format('svg')
+}
+.helvetica-bold{font-family:'helvetica-bold';}
+.helvetica-regular{font-family:'helvetica-regular';}
+.helvetica-light{font-family:'helvetica-light';}
+
+.container-width {
+max-width:1120px;
+margin:auto;
+}
+.logo-block {
+    text-align: center;
+    padding: 1rem 0;
+}
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+header {
+    background-color: #fff;
+        border-bottom: 1px solid #ccc;
+}
+.body-block {
+    padding: 40px 0;
+        text-align:center;
+        font-size:25px;
+}
+
+.maintenance-banner{
+        background:url("https://cdn.flptitan.com/content/cards/images/drinks_banner_1120x350_1558436877329.jpg");
+        background-repeat:no-repeat;
+        background-size:contain;
+        background-position:right;
+        height:350px;
+        width:100%;
+        margin-top:73px;
+}
+
+.mb-25{margin-bottom:25px;}
+.banner-1120x350{width:1120px; height: 350px;}
+.banner-1120x630{width:1120px; height: 630px;}
+.block-352x568{width:352px; height: 568px;}
+.h-630{height:630px;}
+.h-715{height:715px;}
+.px-108{padding-left:108px; padding-right:108px;}
+.mb-32{margin-bottom:32px;}
+.mb-60{margin-bottom:60px;}
+.mt-32 {margin-top:32p;}
+.mb-80{margin-bottom:80px!important;}
+.my-80{margin-top:80px; margin-bottom:80px;}
+.my-16{margin-top:16px; margin-bottom:16px;}
+.mb-80{margin-bottom:80px;}
+.mb-56{margin-bottom:56px;}
+.mt-80{margin-top:80px;}
+.py-80{padding-top:80px; padding-bottom:80px;}
+.greyline{margin-top:2px;}
+.my-60{margin:60px 0px}
+.country-name{font-size:16px; font-family:helvetica-light; font-family:'helvetica-light'}
+.font-40{font-size:40px; line-height:49px;}
+.font-20{font-size:20px; line-height:49px;}
+.pt-100{padding-top:100px;}
+.pt-40{padding-top:40px;}
+.pt-80{padding-top:80px}
+/* HD Screen  more then 1600px */
+@media all and (min-width: 1600px){
+        .maintenance-banner{background-size:cover;height: 350px;}
+}
+/* tablet device */
+@media all and (min-width: 769px) and  (max-width:1024px){
+        .maintenance-banner {
+                height: 325px;
+        }
+        .my-80{margin:40px 20px}
+        .pt-80{padding-top:40px;}
+        .py-80{padding-top:40px; padding-bottom:40px;}
+        .body-block {
+    padding: 40px 15px;}
+}
+@media all and (min-width: 577px) and  (max-width:768px){
+        .maintenance-banner {
+                height: 240px;
+        }
+        .my-80{margin:40px 20px}
+        .pt-80{padding-top:40px;}
+        .py-80{padding-top:40px; padding-bottom:40px;}
+        .body-block {
+    padding: 40px 15px;}
+}
+
+/* For Mobile Device */
+
+@media all and (max-width: 576px){
+        .maintenance-banner {
+                background-size: cover;
+                background-position: -325px 0;
+                height: 350px;
+        }
+        .body-block {
+    padding: 40px 15px;}
+
+        .my-80{margin:40px 20px}
+        .pt-80{padding-top:40px;}
+        .py-80{padding-top:40px; padding-bottom:40px;}
+}
+
+/*for extreme small device like iphone4 and iphone 5 whose resolution will be around 320px*/
+@media all and (max-width: 375px){
+        .maintenance-banner {
+                background-size: cover;
+                background-position: -400px 0;
+                height: 350px;
+        }
+}
+
+</style>
+
+</head>
+<body class="">
+</head>
+<body>
+<header class="aloe-around-world  fixed-top">
+        <div class="logo-block"><a class="navbar-brand" href="#"><img src="https://cdn.flptitan.com/flpi/logo/foreverliving-logo.svg" height="30" /></a></div>
+</header>
+<!-- banner Block -->
+<section class="container-width p-0 maintenance-banner">
+</section>
+
+
+<!-- DRINK GEL AND WIN SECTION -->
+<section class="container-width body-block">
+        <div class="font-40 text-center helvetica-regular mb-60">Work in Progress</div>
+        <p class="">
+            The Forever Living Systems are currently undergoing some maintenance. <br>
+						Please check back after 08:00 p.m MST.
+        </p>
+
+
+</section>
+<section>
+  <div class="font-20 text-center helvetica-regular">
+	<p>
+         Need help? Please contact our support team at <a href="mailto:customercare@foreverliving.com">customercare@foreverliving.com</a> </b>.
+    </p>
+   </div>
+</section>
+</body>
 </html>
