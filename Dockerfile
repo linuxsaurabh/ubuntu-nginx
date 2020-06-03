@@ -7,7 +7,7 @@ RUN apt-get update \
     && apt-get install -y software-properties-common \
     && apt-add-repository -y ppa:nginx/stable \
     && apt-get update \
-    && apt-get install geoip-database-extra libgeoip1 libnginx-mod-http-geoip wget gunzip -y \
+    && apt-get install geoip-database-extra libgeoip1 libnginx-mod-http-geoip wget gzip -y \
     && cd /usr/share/GeoIP \
     && mv GeoIP.dat GeoIP.dat.bak \
     && wget https://dl.miyuru.lk/geoip/maxmind/country/maxmind.dat.gz \
