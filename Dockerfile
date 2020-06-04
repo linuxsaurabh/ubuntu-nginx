@@ -30,6 +30,10 @@ RUN rm /etc/nginx/sites-enabled/default
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
 
+RUN apt-get update && apt-get install -y awscli
+ADD add_conf.sh /etc/nginx/add_conf.sh
+
 EXPOSE 80 443
 
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT /bin/bash -x /etc/nginx/add_conf.sh && nginx -g 'daemon off;'
+
